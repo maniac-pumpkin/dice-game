@@ -73,19 +73,21 @@ document.querySelectorAll(".title-wrapper").forEach((each) => {
 	});
 });
 
+let playerTitle;
+const promptPopUp = document.querySelector(".prompt-name-changer");
+
 document.querySelectorAll(".mini-btn").forEach((each) => {
 	each.addEventListener("click", (e) => {
 		const isItOne = e.currentTarget.className.includes("one");
-		const promptPopUp = document.querySelector(".prompt-name-changer");
-
+		playerTitle = document.querySelector(`.player-title-${isItOne ? "one" : "two"}`);
 		promptPopUp.classList.add("prompt-name-changer--show");
-		promptPopUp.addEventListener("submit", (f) => {
-			f.preventDefault();
-			const name = document.querySelector(".name-changer-input").value;
-			if (name) document.querySelector(`.player-title-${isItOne ? "one" : "two"}`).innerText = name;
-			promptPopUp.classList.remove("prompt-name-changer--show");
-			document.body.style.pointerEvents = "all";
-		});
-		document.body.style.pointerEvents = "none";
 	});
+});
+
+promptPopUp.addEventListener("submit", (f) => {
+	f.preventDefault();
+	const name = document.querySelector(".name-changer-input");
+	if (name.value && name.value.length <= 15) playerTitle.innerText = name.value;
+	promptPopUp.classList.remove("prompt-name-changer--show");
+	name.value = "";
 });
