@@ -1,0 +1,181 @@
+@font-face {
+	font-family: grotesk-l;
+	src: url("./files/SpaceGrotesk-Light.ttf");
+}
+
+@font-face {
+	font-family: grotesk-r;
+	src: url("./files/SpaceGrotesk-Regular.ttf");
+}
+
+@font-face {
+	font-family: grotesk-b;
+	src: url("./files/SpaceGrotesk-Bold.ttf");
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 10px;
+	user-select: none;
+}
+
+body {
+	font-family: grotesk-r;
+	font-size: 1.6rem;
+	min-height: 100vh;
+	background-color: #222831;
+	color: #ffffff;
+}
+
+.container {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.board {
+	width: 110rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #393e46;
+	border-radius: 3rem;
+	border: 0.5rem solid #52616b;
+	position: relative;
+}
+
+.players {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	padding-top: 4.5rem;
+	padding-bottom: 5rem;
+	flex-direction: column;
+	align-items: center;
+	transition: all 250ms ease-in-out;
+}
+
+.player-section-one {
+	border-radius: 2.5rem 0 0 2.5rem;
+}
+
+.player-section-two {
+	border-radius: 0 2.5rem 2.5rem 0;
+}
+
+.dice-bg {
+	display: none;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: #393e46;
+	border-radius: 3rem;
+}
+
+.title-wrapper {
+	position: relative;
+	z-index: 2;
+	margin-bottom: 3rem;
+}
+
+.player-title {
+	font-family: grotesk-b;
+	font-size: 5rem;
+}
+
+.score {
+	font-family: grotesk-l;
+	font-size: 6.4rem;
+	margin-bottom: 17rem;
+}
+
+.current-scores-wrapper {
+	width: 23.5rem;
+	padding: 1rem;
+	text-align: center;
+	background-color: #00adb5;
+	border-radius: 1.5rem;
+}
+
+.score-text {
+	font-size: 3.6rem;
+	margin-bottom: 0.5rem;
+}
+
+.current-score {
+	font-family: grotesk-l;
+	font-size: 4rem;
+}
+
+.buttons {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 3rem;
+	gap: 3rem;
+}
+
+.btn {
+	width: 20rem;
+	height: 4.5rem;
+	font-family: grotesk-b;
+	font-size: 2.2rem;
+	background-color: #00adb5;
+	color: #ffffff;
+	border-radius: 1rem;
+	border: none;
+	outline: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 0.3rem;
+	cursor: pointer;
+	transition: background-color 250ms ease-in-out;
+}
+
+.btn:hover {
+	border: 0.4rem solid #00adb5;
+	background-color: transparent;
+}
+
+.btn:active {
+	transform: scale(1.1);
+}
+
+.active {
+	background-color: #52616b;
+}
+
+.mini-btn {
+	width: 3rem;
+	height: 3rem;
+	background-color: #00adb5;
+	border-radius: 5rem;
+	border: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	outline: none;
+	cursor: pointer;
+	position: absolute;
+	top: 50%;
+	right: 1rem;
+	z-index: -1;
+	opacity: 0;
+	transform: translateY(-50%) rotate(180deg);
+	transition: all 300ms ease-in-out;
+}
+
+.mini-btn--show {
+	right: -4rem;
+	opacity: 1;
+	transform: translateY(-50%) rotate(0);
+	border-radius: 0.5rem;
+}

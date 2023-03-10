@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Dice Game</title>
+		<link rel="stylesheet" href="./style.css" />
+	</head>
+	<body>
+		<div class="container">
+			<div class="board">
+				<section class="players player-section-one active">
+					<div class="title-wrapper player-title-wrapper-one">
+						<h2 class="player-title player-title-one">Player 1</h2>
+						<button class="mini-btn name-editor-player-one">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								width="24"
+								height="24"
+								viewBox="0 0 24 24"
+								style="fill: rgba(255, 255, 255, 1)"
+							>
+								<path d="m18.988 2.012 3 3L19.701 7.3l-3-3zM8 16h3l7.287-7.287-3-3L8 13z"></path>
+								<path
+									d="M19 19H8.158c-.026 0-.053.01-.079.01-.033 0-.066-.009-.1-.01H5V5h6.847l2-2H5c-1.103 0-2 .896-2 2v14c0 1.104.897 2 2 2h14a2 2 0 0 0 2-2v-8.668l-2 2V19z"
+								></path>
+							</svg>
+						</button>
+					</div>
+					<p class="score score-player-one">0</p>
+					<div class="current-scores-wrapper">
+						<p class="score-text">Current</p>
+						<span class="current-score current-score-player-one">0</span>
+					</div>
+				</section>
+				<div class="dice-bg">
+					<img src="./files/dice-1.svg" alt="dice" class="dice-svg" />
+				</div>
+				<section class="players player-section-two">
+					<div class="title-wrapper player-title-wrapper-two">
+						<h2 class="player-title player-title-two">Player 2</h2>
+						<button class="mini-btn name-editor-player-two">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								width="24"
+								height="24"
+								viewBox="0 0 24 24"
+								style="fill: rgba(255, 255, 255, 1)"
+							>
+								<path d="m18.988 2.012 3 3L19.701 7.3l-3-3zM8 16h3l7.287-7.287-3-3L8 13z"></path>
+								<path
+									d="M19 19H8.158c-.026 0-.053.01-.079.01-.033 0-.066-.009-.1-.01H5V5h6.847l2-2H5c-1.103 0-2 .896-2 2v14c0 1.104.897 2 2 2h14a2 2 0 0 0 2-2v-8.668l-2 2V19z"
+								></path>
+							</svg>
+						</button>
+					</div>
+					<p class="score score-player-two">0</p>
+					<div class="current-scores-wrapper">
+						<p class="score-text">Current</p>
+						<span class="current-score current-score-player-two">0</span>
+					</div>
+				</section>
+			</div>
+			<section class="buttons">
+				<div class="btn retry-btn">
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						width="25"
+						height="25"
+						viewBox="0 0 24 24"
+						style="fill: rgba(255, 255, 255, 1)"
+					>
+						<path d="M9 9h6v6H9z"></path>
+						<path
+							d="M19 17V7c0-1.103-.897-2-2-2H7c-1.103 0-2 .897-2 2v10c0 1.103.897 2 2 2h10c1.103 0 2-.897 2-2zM7 7h10l.002 10H7V7z"
+						></path>
+					</svg>
+					Retry
+				</div>
+				<button class="btn hold">
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						width="25"
+						height="25"
+						viewBox="0 0 24 24"
+						style="fill: rgba(255, 255, 255, 1)"
+					>
+						<path
+							d="M20.5 5A1.5 1.5 0 0 0 19 6.5V11h-1V4.5a1.5 1.5 0 0 0-3 0V11h-1V3.5a1.5 1.5 0 0 0-3 0V11h-1V5.5a1.5 1.5 0 0 0-3 0v10.81l-2.22-3.6a1.5 1.5 0 0 0-2.56 1.58l3.31 5.34A5 5 0 0 0 9.78 22H17a5 5 0 0 0 5-5V6.5A1.5 1.5 0 0 0 20.5 5z"
+						></path>
+					</svg>
+					Hold
+				</button>
+				<button class="btn dice-roller">
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						width="25"
+						height="25"
+						viewBox="0 0 24 24"
+						style="fill: rgba(255, 255, 255, 1)"
+					>
+						<path
+							d="M17.895 3.553A1.001 1.001 0 0 0 17 3H7c-.379 0-.725.214-.895.553l-4 8a1 1 0 0 0 0 .895l4 8c.17.338.516.552.895.552h10c.379 0 .725-.214.895-.553l4-8a1 1 0 0 0 0-.895l-4-7.999zM19.382 11h-7.764l-3-6h7.764l3 6zm-3 8H8.618l3-6h7.764l-3 6z"
+						></path>
+					</svg>
+					Roll Dice
+				</button>
+			</section>
+		</div>
+		<script src="./main.js"></script>
+	</body>
+</html>
