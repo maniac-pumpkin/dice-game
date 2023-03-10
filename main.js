@@ -1,5 +1,4 @@
 "use strict";
-
 let currentPlayer;
 let [playerOneTotalScore, playerTwoTotalScore, currentScores, activePlayer] = [0, 0, 0, 0];
 const switchPlayer = (change) => {
@@ -74,20 +73,25 @@ document.querySelectorAll(".title-wrapper").forEach((each) => {
 });
 
 let playerTitle;
-const promptPopUp = document.querySelector(".prompt-name-changer");
-
+const promptPopUp = document.querySelector(".popup-prompt");
 document.querySelectorAll(".mini-btn").forEach((each) => {
 	each.addEventListener("click", (e) => {
 		const isItOne = e.currentTarget.className.includes("one");
 		playerTitle = document.querySelector(`.player-title-${isItOne ? "one" : "two"}`);
-		promptPopUp.classList.add("prompt-name-changer--show");
+		promptPopUp.classList.add("popup-prompt--show");
+		document.body.style.pointerEvents = "none";
 	});
 });
 
-promptPopUp.addEventListener("submit", (f) => {
-	f.preventDefault();
-	const name = document.querySelector(".name-changer-input");
+document.querySelector(".popup-prompt-submit-btn").addEventListener("click", () => {
+	const name = document.querySelector(".popup-prompt-input");
 	if (name.value && name.value.length <= 15) playerTitle.innerText = name.value;
-	promptPopUp.classList.remove("prompt-name-changer--show");
+	promptPopUp.classList.remove("popup-prompt--show");
 	name.value = "";
+	document.body.style.pointerEvents = "all";
+});
+
+document.querySelector(".popup-prompt-cancel-btn").addEventListener("click", () => {
+	promptPopUp.classList.remove("popup-prompt--show");
+	document.body.style.pointerEvents = "all";
 });

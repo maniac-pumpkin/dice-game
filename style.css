@@ -169,18 +169,18 @@ body {
 	right: 1rem;
 	z-index: -1;
 	opacity: 0;
-	transform: translateY(-50%) rotate(180deg);
+	transform: translateY(-50%) rotate(180deg) scale(0);
 	transition: all 300ms ease-in-out;
 }
 
 .mini-btn--show {
 	right: -4rem;
 	opacity: 1;
-	transform: translateY(-50%) rotate(0);
+	transform: translateY(-50%) rotate(0) scale(1);
 	border-radius: 0.5rem;
 }
 
-.prompt-name-changer {
+.popup-prompt {
 	width: 35rem;
 	padding-top: 3rem;
 	padding-bottom: 4rem;
@@ -203,19 +203,18 @@ body {
 	transition: all 300ms ease-in-out;
 }
 
-.name-changer-title {
+.popup-prompt-title {
 	font-family: grotesk-b;
 	font-size: 2.8rem;
 	margin-bottom: 2.4rem;
 }
 
-.name-changer-input {
+.popup-prompt-input {
 	width: 100%;
 	height: 4.5rem;
 	padding: 1rem;
 	font-family: grotesk-b;
 	font-size: 2.6rem;
-	text-align: center;
 	background-color: transparent;
 	color: #ffffff;
 	border: 0.4rem solid #00adb5;
@@ -224,19 +223,34 @@ body {
 	margin-bottom: 2rem;
 }
 
-.name-changer-submit-btn {
+.popup-prompt-btns {
 	width: 100%;
+	display: flex;
+	gap: 1rem;
 }
 
-.name-changer-input::placeholder {
+.popup-prompt-submit-btn {
+	width: 50%;
+}
+
+.popup-prompt-cancel-btn {
+	width: 50%;
+	background-color: #ff0303;
+}
+
+.popup-prompt-cancel-btn:hover {
+	border: 0.4rem solid #ff0303;
+}
+
+.popup-prompt-input::placeholder {
 	text-align: left;
 }
 
-.name-changer-input:focus {
+.popup-prompt-input:focus {
 	transform: scale(1.1);
 }
 
-.prompt-name-changer--show {
+.popup-prompt--show {
 	pointer-events: all;
 	opacity: 1;
 }
