@@ -74,21 +74,35 @@ document.querySelectorAll(".title-wrapper").forEach((each) => {
 
 let playerTitle;
 const promptPopUp = document.querySelector(".popup-prompt");
+const promptInput = document.querySelector(".popup-prompt-input");
+
+const showPrompt = (status) => {
+	if (status) {
+		promptPopUp.classList.add("popup-prompt--show");
+		document.body.style.pointerEvents = "none";
+	} else {
+		promptPopUp.classList.remove("popup-prompt--show");
+		promptInput.value = "";
+		document.body.style.pointerEvents = "all";
+	}
+};
+
+const scoreLimit = document.querySelector(".score-limit");
+document.querySelector(".score-limit-wrapper").addEventListener("click", () => {
+	showPrompt(true);
+});
+
 document.querySelectorAll(".mini-btn").forEach((each) => {
 	each.addEventListener("click", (e) => {
 		const isItOne = e.currentTarget.className.includes("one");
 		playerTitle = document.querySelector(`.player-title-${isItOne ? "one" : "two"}`);
-		promptPopUp.classList.add("popup-prompt--show");
-		document.body.style.pointerEvents = "none";
+		showPrompt(true);
 	});
 });
 
 document.querySelector(".popup-prompt-submit-btn").addEventListener("click", () => {
-	const name = document.querySelector(".popup-prompt-input");
-	if (name.value && name.value.length <= 15) playerTitle.innerText = name.value;
-	promptPopUp.classList.remove("popup-prompt--show");
-	name.value = "";
-	document.body.style.pointerEvents = "all";
+	if (promptInput.value && promptInput.value.length <= 15) playerTitle.innerText = promptInput.value;
+	showPrompt(false);
 });
 
 document.querySelector(".popup-prompt-cancel-btn").addEventListener("click", () => {

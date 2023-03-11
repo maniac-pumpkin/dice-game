@@ -40,7 +40,7 @@ body {
 }
 
 .board {
-	width: 110rem;
+	width: 100rem;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -87,7 +87,7 @@ body {
 
 .player-title {
 	font-family: grotesk-b;
-	font-size: 5rem;
+	font-size: 4.4rem;
 }
 
 .score {
@@ -151,6 +151,26 @@ body {
 
 .active {
 	background-color: #52616b;
+}
+
+.score-limit-wrapper {
+	width: fit-content;
+	height: 4.5rem;
+	min-width: 4.5rem;
+	padding: 0.5rem;
+	font-size: 2.2rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #00adb5;
+	border-radius: 1rem;
+	cursor: pointer;
+	transition: background-color 250ms ease-in-out;
+}
+
+.score-limit-wrapper:hover {
+	border: 0.4rem solid #00adb5;
+	background-color: transparent;
 }
 
 .mini-btn {
