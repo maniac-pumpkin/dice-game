@@ -96,16 +96,27 @@ document.querySelectorAll(".mini-btn").forEach((each) => {
 	each.addEventListener("click", (e) => {
 		const isItOne = e.currentTarget.className.includes("one");
 		playerTitle = document.querySelector(`.player-title-${isItOne ? "one" : "two"}`);
+		promptInput.classList.add("changing-name");
 		showPrompt(true);
 	});
 });
 
 document.querySelector(".popup-prompt-submit-btn").addEventListener("click", () => {
-	if (promptInput.value && promptInput.value.length <= 15) playerTitle.innerText = promptInput.value;
+	const isItNameChanger = promptInput.className.includes("changing-name");
+
+	if (isItNameChanger) {
+		if (promptInput.value && promptInput.value.length <= 15) playerTitle.innerText = promptInput.value;
+		promptInput.classList.remove("changing-name");
+	} else {
+		const value = promptInput.value;
+		if (value && value >= 50 && value <= 500) scoreLimit.innerText = value;
+	}
 	showPrompt(false);
 });
 
 document.querySelector(".popup-prompt-cancel-btn").addEventListener("click", () => {
-	promptPopUp.classList.remove("popup-prompt--show");
-	document.body.style.pointerEvents = "all";
+	promptInput.classList.remove("changing-name");
+	showPrompt(false);
 });
+
+// TODO: Make a MVP board
