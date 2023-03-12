@@ -25,6 +25,7 @@ const switchPlayer = (change) => {
 	}
 	playerOneScore.innerText = playerOneTotalScore;
 	playerTwoScore.innerText = playerTwoTotalScore;
+	whoIsTheWinner();
 };
 
 document.querySelector(".dice-roller").addEventListener("click", () => {
@@ -135,23 +136,25 @@ document.querySelector(".popup-prompt-cancel-btn").addEventListener("click", () 
 	showPrompt(false);
 });
 
-// FIXME: Score Updating problem
-
 const mvpPopUp = document.querySelector(".mvp-popup");
-
 function whoIsTheWinner() {
-	// const whoIsBigger = playerOneTotalScore > playerTwoTotalScore;
-	// const playerTitle = document.querySelector(`player-title-${whoIsBigger ? "one" : "two"}`);
-	// const mvpWinner = document.querySelector(".mvp-popup-winner");
-	// const playerOneScore = document.querySelector(".score-player-one").innerText;
-	// const playerTwoScore = document.querySelector(".score-player-two").innerText;
-	// if (playerOneScore === Number(scoreLimit.innerText)) {
-	// 	mvpPopUp.classList.add("mvp-popup--show");
-	// 	mvpWinner.innerText = playerTitle.innerText;
-	// } else if (playerTwoScore === Number(scoreLimit.innerText)) {
-	// 	mvpPopUp.classList.add("mvp-popup--show");
-	// 	mvpWinner.innerText = playerTitle.innerText;
-	// }
+	const mvpWinner = document.querySelector(".mvp-popup-winner");
+	const mvpScore = document.querySelector(".mvp-popup-score");
+
+	const isOneBigger = playerOneTotalScore > playerTwoTotalScore;
+	const playerTitle = document.querySelector(`.player-title-${isOneBigger ? "one" : "two"}`);
+	const playerScore = document.querySelector(`.score-player-${isOneBigger ? "one" : "two"}`);
+
+	if (Number(playerScore.innerText) >= Number(scoreLimit.innerText)) {
+		mvpPopUp.classList.add("mvp-popup--show");
+		mvpWinner.innerText = playerTitle.innerText;
+		mvpScore.innerText = playerScore.innerText;
+		document.body.style.pointerEvents = "none";
+	}
 }
 
-// document.querySelector(".new-game-btn").addEventListener("click", () => {});
+document.querySelector(".new-game-btn").addEventListener("click", () => {
+	resetEveryThing();
+	mvpPopUp.classList.remove("mvp-popup--show");
+	document.body.style.pointerEvents = "all";
+});
