@@ -202,10 +202,7 @@ body {
 
 .popup-prompt {
 	width: 35rem;
-	padding-top: 3rem;
-	padding-bottom: 4rem;
-	padding-left: 4rem;
-	padding-right: 4rem;
+	padding: 3rem 4rem 3rem 4rem;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -247,6 +244,7 @@ body {
 	width: 100%;
 	display: flex;
 	gap: 1rem;
+	margin-bottom: 1rem;
 }
 
 .popup-prompt-submit-btn {
@@ -256,6 +254,11 @@ body {
 .popup-prompt-cancel-btn {
 	width: 50%;
 	background-color: #ff0303;
+}
+
+.popup-prompt-message {
+	font-family: grotesk-l;
+	font-size: 1.4rem;
 }
 
 .popup-prompt-cancel-btn:hover {
@@ -271,6 +274,53 @@ body {
 }
 
 .popup-prompt--show {
+	pointer-events: all;
+	opacity: 1;
+	transform: translate(-50%, -50%) scale(1);
+}
+
+.mvp-popup {
+	padding: 3rem 4rem 4rem 4rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	pointer-events: none;
+	opacity: 0;
+	position: absolute;
+	z-index: 4;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%) scale(0);
+	background-color: #222831;
+	border-radius: 2.5rem;
+	box-shadow: 0 0 3rem #222831;
+	transition: all 200ms ease-in-out;
+}
+
+.mvp-popup-title {
+	font-family: grotesk-b;
+	font-size: 4rem;
+	margin-bottom: 2rem;
+}
+
+.mvp-popup-winner {
+	font-family: grotesk-b;
+	font-size: 3.5rem;
+	margin-bottom: 2rem;
+}
+
+.mvp-popup-score {
+	font-family: grotesk-l;
+	font-size: 3rem;
+	margin-bottom: 2rem;
+}
+
+.new-game-btn {
+	width: 100%;
+}
+
+.mvp-popup--show {
 	pointer-events: all;
 	opacity: 1;
 	transform: translate(-50%, -50%) scale(1);

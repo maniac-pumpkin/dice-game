@@ -48,7 +48,7 @@ document.querySelector(".hold").addEventListener("click", () => {
 	currentPlayer.innerText = currentScores;
 });
 
-document.querySelector(".retry-btn").addEventListener("click", () => {
+const resetEveryThing = () => {
 	playerOneTotalScore = 0;
 	playerTwoTotalScore = 0;
 	currentScores = 0;
@@ -57,7 +57,9 @@ document.querySelector(".retry-btn").addEventListener("click", () => {
 	document.querySelector(".dice-bg").style.display = "none";
 	document.querySelectorAll(".score").forEach((eachScore) => (eachScore.innerText = 0));
 	document.querySelectorAll(".current-score").forEach((eachCurrentScore) => (eachCurrentScore.innerText = 0));
-});
+};
+
+document.querySelector(".retry-btn").addEventListener("click", () => resetEveryThing());
 
 document.querySelectorAll(".title-wrapper").forEach((each) => {
 	each.addEventListener("mouseenter", (e) => {
@@ -101,22 +103,55 @@ document.querySelectorAll(".mini-btn").forEach((each) => {
 	});
 });
 
+const promptMessage = document.querySelector(".popup-prompt-message");
 document.querySelector(".popup-prompt-submit-btn").addEventListener("click", () => {
 	const isItNameChanger = promptInput.className.includes("changing-name");
 
 	if (isItNameChanger) {
-		if (promptInput.value && promptInput.value.length <= 15) playerTitle.innerText = promptInput.value;
-		promptInput.classList.remove("changing-name");
+		if (promptInput.value && promptInput.value.length <= 15) {
+			playerTitle.innerText = promptInput.value;
+			promptInput.classList.remove("changing-name");
+			promptMessage.innerText = "";
+			showPrompt(false);
+		} else {
+			promptMessage.innerText = "Value must be less than 15 characters";
+		}
 	} else {
 		const value = promptInput.value;
-		if (value && value >= 50 && value <= 500) scoreLimit.innerText = value;
+
+		if (value && value >= 50 && value <= 500) {
+			scoreLimit.innerText = value;
+			promptMessage.innerText = "";
+			showPrompt(false);
+		} else {
+			promptMessage.innerText = "Value must be between 50 and 500";
+		}
 	}
-	showPrompt(false);
 });
 
 document.querySelector(".popup-prompt-cancel-btn").addEventListener("click", () => {
 	promptInput.classList.remove("changing-name");
+	promptMessage.innerText = "";
 	showPrompt(false);
 });
 
-// TODO: Make a MVP board
+// FIXME: Score Updating problem
+
+const mvpPopUp = document.querySelector(".mvp-popup");
+
+function whoIsTheWinner() {
+	// const whoIsBigger = playerOneTotalScore > playerTwoTotalScore;
+	// const playerTitle = document.querySelector(`player-title-${whoIsBigger ? "one" : "two"}`);
+	// const mvpWinner = document.querySelector(".mvp-popup-winner");
+	// const playerOneScore = document.querySelector(".score-player-one").innerText;
+	// const playerTwoScore = document.querySelector(".score-player-two").innerText;
+	// if (playerOneScore === Number(scoreLimit.innerText)) {
+	// 	mvpPopUp.classList.add("mvp-popup--show");
+	// 	mvpWinner.innerText = playerTitle.innerText;
+	// } else if (playerTwoScore === Number(scoreLimit.innerText)) {
+	// 	mvpPopUp.classList.add("mvp-popup--show");
+	// 	mvpWinner.innerText = playerTitle.innerText;
+	// }
+}
+
+// document.querySelector(".new-game-btn").addEventListener("click", () => {});
